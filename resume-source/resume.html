@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abhishek Gupta — Resume (ATS, 2026)</title>
+<!-- Source for Abhishek_Gupta_Resume.pdf. Rebuild the PDF with: node resume-source/build.js -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=Public+Sans:wght@400;600&display=swap">
+<style>
+:root {
+  --ink: #1A1A1A;
+  --muted: #3D3D3D;
+  --link: #1F5FBF;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+}
+@page { size: A4; margin: 16mm 18mm 18mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0 auto; max-width: 174mm; padding: 16px;
+  background: #FFFFFF; color: var(--ink);
+  font: 10.5pt/1.5 var(--sans);
+}
+@media print { body { padding: 0; max-width: none; } }
+a { color: var(--link); }
+h1 { margin: 0 0 10pt; font: 400 26pt/1.1 var(--serif); letter-spacing: -0.01em; }
+.headline { margin: 0 0 4pt; font-weight: 600; }
+.contact { margin: 0; }
+.contact a { color: inherit; text-decoration: none; }
+h2 { margin: 18pt 0 6pt; font: 400 15pt/1.2 var(--serif); break-after: avoid; }
+h3 { margin: 12pt 0 2pt; font: 400 11.5pt/1.3 var(--serif); break-after: avoid; }
+.when { margin: 0 0 4pt; color: var(--muted); }
+p { margin: 0; }
+ul { margin: 2pt 0 0; padding-left: 14pt; }
+li { margin: 0 0 3pt; break-inside: avoid; }
+b { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Abhishek Gupta</h1>
+  <p class="headline">Senior Backend Engineer | Data Platforms, Integrations and Applied AI</p>
+  <p class="contact">Bengaluru, India | <a href="mailto:abhishek9060@gmail.com">abhishek9060@gmail.com</a> | +91-7873953966 | <a href="https://www.linkedin.com/in/abhishek007/">linkedin.com/in/abhishek007</a> | <a href="https://github.com/BaMiniCo">github.com/BaMiniCo</a></p>
+</header>
+
+<section>
+  <h2>Summary</h2>
+  <p>Senior backend engineer with 8+ years building data platforms, data integrations and production AI in Java, Spring Boot and Python. At Meltano, built self-healing data pipelines that cut the time to fix a failed pipeline from days to under an hour, and created 6 open-source connectors and state backends; this work helped win enterprise accounts worth over $200K a year. At 5X, was the top contributor to the core platform and built its retrieval-augmented generation (RAG) analytics service, on a platform serving 50+ enterprise clients. At Blinkit, worked across the warehouse, transit and dark-store systems behind 10-minute delivery, at 20 warehouses and about 600 dark stores.</p>
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <ul>
+    <li><b>Languages:</b> Java, Python, SQL, JavaScript (React)</li>
+    <li><b>Backend:</b> Spring Boot, FastAPI, Django, REST APIs, Server-Sent Events (SSE), JPA/Hibernate, Liquibase, Quartz</li>
+    <li><b>Data integration:</b> Meltano, Singer SDK, dbt, Fivetran, Airbyte, Kafka, change data capture (CDC), ELT pipelines, Apache Superset</li>
+    <li><b>Databases and warehouses:</b> PostgreSQL, MySQL, Microsoft SQL Server, ClickHouse, Redis, Qdrant, Snowflake, BigQuery, Amazon Redshift, Amazon Athena</li>
+    <li><b>AI:</b> retrieval-augmented generation (RAG), LLM applications, LangChain4j, LangChain, LangGraph, Claude, OpenAI, Gemini, Model Context Protocol (MCP), vector search, reranking, AI agents, Claude Code, OpenAI Codex</li>
+    <li><b>Cloud and DevOps:</b> AWS (ECS, EKS, Fargate, S3), Google Cloud (GKE), Microsoft Azure, Kubernetes, Helm, Terraform, Docker, GitHub Actions, Jenkins, CloudFormation</li>
+    <li><b>Observability and security:</b> Grafana, Loki, Thanos, Datadog, OAuth2, Auth0, role-based access control (RBAC), multi-tenancy, encrypted customer API keys (BYOK)</li>
+    <li><b>Testing:</b> JUnit, Testcontainers, pytest, integration test suites</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Experience</h2>
+
+  <h3>Senior Backend Engineer, Meltano</h3>
+  <p class="when">Mar 2026 – Present | Bengaluru, India</p>
+  <ul>
+    <li>Built self-healing data pipelines: a monitoring agent watches every pipeline, diagnoses each failure with Claude, writes the fix and opens a pull request for an engineer to review and merge. Cut the time to fix a failed pipeline from days to under an hour. With the connectors below, this work helped win enterprise accounts worth over $200K a year.</li>
+    <li>Added data warehouses as first-class destinations and state stores, starting with Microsoft SQL Server: JDBC configuration, SSH tunnels, a dbt adapter, and an open-source state backend with distributed locking and 21 unit tests. Fixed a shared-connection bottleneck that slowed SQL Server loads.</li>
+    <li>Added ClickHouse as a supported data store, with SSH tunnels, upserts by default and a race-free state-backend lock. Merged 11 pull requests into the open-source loader, including retries with backoff, TLS verification and a fix that stopped keyless tables collapsing to a single row.</li>
+    <li>Created 4 open-source extractors on the Meltano Singer SDK: Rakuten Advertising, Microsoft Power BI (16 streams), Zendesk and SurveyMonkey. Each ships in Meltano Cloud with OAuth, API-token or private-app authentication and integration tests.</li>
+    <li>Showed each failed run's AI diagnosis and next steps in the app and in alert emails, with parallel, cached context preparation and a fix for a 200K-token context overflow.</li>
+    <li>Built MCP tools that let customers' AI agents search the Meltano knowledge base, added pipeline types to the create and list pipeline tools, and co-built the open-source knowledge base behind them.</li>
+    <li>Moved an enterprise data platform's ingestion onto Meltano Cloud and retired Airbyte as its default: connector setup, OAuth connect, schema discovery, sync logs, retries and destination management, in Spring Boot and React.</li>
+    <li>Owned critical pipeline incidents (CDC correctness, schema integrity, cloud capacity). Helped move production onto Google Kubernetes Engine (GKE), ended container-registry rate-limit outages, set up cross-cloud log replication so customer teams can see their pipeline logs, and added per-workspace Datadog log forwarding with PII redaction.</li>
+    <li>Built an AI-assisted engineering practice: custom Claude Code skills, commands, hooks and rules, plus MCP integrations with Linear and GitHub, for bug triage, code review and incident investigation.</li>
+  </ul>
+
+  <h3>Software Engineer, 5X Data</h3>
+  <p class="when">Jun 2024 – Mar 2026 | Bengaluru, India</p>
+  <ul>
+    <li>Top contributor to the core platform across ingestion, orchestration, AI and billing services, on a multi-cloud data platform serving 50+ enterprise clients.</li>
+    <li>Built and owned the conversational analytics service (RAG), which answers plain-English questions from each client's own warehouse. Built on LangChain4j, Qdrant, 3072-dimension OpenAI embeddings and a Cube semantic layer, with streamed answers (SSE) and LLM intent classification.</li>
+    <li>Supported several LLM providers using each client's own API keys, encrypted at rest (BYOK). Added reranking with conversation history, shared team chats with per-user visibility, and RBAC. Cut reranking token use by sending only the most relevant semantic models.</li>
+    <li>Built the unified ingestion layer over Fivetran, Airbyte and Matatika: connector lifecycle, schema discovery, sync orchestration and signed webhooks, loading into Snowflake, BigQuery, Redshift and Athena. Fixed and extended the platform's own builds of Airbyte connectors and Apache Superset dashboards.</li>
+    <li>Built usage-metering and billing APIs for add-on compute capacity: utilization, usage trends across providers and Snowflake usage tracking, wired into the admin console.</li>
+    <li>Built DAG-based job orchestration with Quartz on Kubernetes and ECS: Redis distributed locking for 15+ scheduled jobs, a jobs regression suite, and zero-downtime deploys through GitHub Actions.</li>
+    <li>Helped build the hub-and-spoke platform across GCP, AWS and Azure: client-dedicated Kubernetes data planes in 5+ regions, Terraform, a WireGuard mesh, and Grafana, Thanos, Loki and Alloy observability, including the central logging dashboard.</li>
+    <li>Built multi-tenant workspaces with data isolation, OAuth2, RBAC with custom roles and Redis caching. Built internal LLM tooling for automated code review, pre-commit validation and multi-model consensus.</li>
+  </ul>
+
+  <h3>Software Development Engineer 2, Blinkit</h3>
+  <p class="when">Feb 2021 – Jun 2024 | India</p>
+  <ul>
+    <li>Led a pod of 4 engineers that built middle-mile tracking for vehicles, crates and goods moving between warehouses and dark stores, giving operations live visibility of stock in transit across 20 warehouses, about 600 dark stores and about 4,000 truck trips a day.</li>
+    <li>Built asynchronous Kafka pipelines for real-time inventory, asset tracking and order processing, supporting the 10-minute delivery promise.</li>
+    <li>Worked across the warehouse, transit and dark-store teams on the full flow: receiving and PO validation, put-away, demand-based put lists that ship the oldest stock first, B2B billing, load planning by crate and item volume, GPS-tracked transit with seal checks, and QR-scanned rack handoffs to riders. Built a new dark-store system in Java and Spring Boot for unloading, shelving, auditing and picking.</li>
+    <li>Built invoice registration for supply-side and consumer-side flows in FastAPI, meeting financial compliance requirements.</li>
+    <li>Built data pipelines and Django admin tools for operations, supply and P&amp;L teams, and ran services on AWS with Jenkins, CloudFormation, Docker and Fargate.</li>
+  </ul>
+
+  <h3>Software Engineer, Hexaware Technologies</h3>
+  <p class="when">Feb 2018 – Feb 2021 | India</p>
+  <ul>
+    <li>Built internal enterprise products: Spring Boot REST services, React web front ends and Xamarin (C#) mobile apps, deployed on AWS.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Open Source Projects</h2>
+  <ul>
+    <li><b>tap-usgs-earthquakes</b> (creator, built with OpenAI Codex): Singer tap for the USGS Earthquake Catalog with incremental sync, count-based request splitting under the API's 20,000-row limit, and retries. Released on PyPI and Meltano Hub. <a href="https://github.com/BaMiniCo/tap-usgs-earthquakes">github.com/BaMiniCo/tap-usgs-earthquakes</a></li>
+    <li><b>tap-powerbi</b> (creator): Singer tap for Microsoft Power BI with 16 streams and OAuth token refresh. <a href="https://github.com/MeltanoLabs/tap-powerbi">github.com/MeltanoLabs/tap-powerbi</a></li>
+    <li><b>tap-rakutenadvertising</b> (creator): Singer tap for Rakuten Advertising reports, including legacy XML endpoints. <a href="https://github.com/MeltanoLabs/tap-rakutenadvertising">github.com/MeltanoLabs/tap-rakutenadvertising</a></li>
+    <li><b>tap-zendesk</b> (creator): Singer tap for Zendesk Support that honors Retry-After rate limits. <a href="https://github.com/MeltanoLabs/tap-zendesk">github.com/MeltanoLabs/tap-zendesk</a></li>
+    <li><b>tap-surveymonkey</b> (creator): Singer tap for SurveyMonkey with recipient streams and pagination. <a href="https://github.com/MeltanoLabs/tap-surveymonkey">github.com/MeltanoLabs/tap-surveymonkey</a></li>
+    <li><b>meltano-state-backend-mssql</b> (creator): Meltano state backend for SQL Server with distributed locking. <a href="https://github.com/meltano/meltano-state-backend-mssql">github.com/meltano/meltano-state-backend-mssql</a></li>
+    <li><b>meltano-state-backend-clickhouse</b> (creator): Meltano state backend for ClickHouse with a race-free lock. <a href="https://github.com/meltano/meltano-state-backend-clickhouse">github.com/meltano/meltano-state-backend-clickhouse</a></li>
+    <li><b>target-clickhouse</b> (11 merged pull requests): SSH tunnels, insert retries, TLS verification and table-engine fixes. <a href="https://github.com/MeltanoLabs/target-clickhouse">github.com/MeltanoLabs/target-clickhouse</a></li>
+    <li><b>utility-powerbi</b> (lead contributor): Power BI dataset refresh for Meltano pipelines, with OAuth and wait, status and history commands. <a href="https://github.com/Matatika/utility-powerbi">github.com/Matatika/utility-powerbi</a></li>
+    <li><b>files-melty-ai</b> (co-author): open-source knowledge base that gives AI coding agents accurate Meltano context. <a href="https://github.com/meltano/files-melty-ai">github.com/meltano/files-melty-ai</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Personal Projects</h2>
+  <ul>
+    <li><b>Demand machine</b> (Python, Claude): finds companies hiring for repetitive operations work and builds each a working demo from its own public data. The first demo turns a purchase order from email or PDF into an ERP import file matched to the company's catalog. A weekly agent on GitHub Actions proposes new data sources.</li>
+    <li><b>Photo tamper check</b> (Python, computer vision): tells whether a photo was made with AI or edited, combining C2PA metadata, image forensics and two AI detectors, tuned to about 1% false alarms on real photos. Runs on a CPU in 2 to 5 seconds.</li>
+    <li><b>Algorithmic trading system</b> (Python): personal research system for Indian equities, running daily on a cloud server with data pipelines, stock ranking, pre-registered strategy tests and paper-trading books under fixed risk limits. 400+ automated tests.</li>
+    <li><b>Noteify</b> (Python): command-line tool that records meetings, transcribes them locally with faster-whisper and writes structured notes. <a href="https://github.com/BaMiniCo/noteify">github.com/BaMiniCo/noteify</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Certifications</h2>
+  <ul>
+    <li><b>Joint AI-Quantum Expert with Amazon Braket</b>, QpiAI India Pvt. Ltd | Oct 2026 | Credential ID 6954b6c5284e1ea22c4a5085. Verify at <a href="https://explorer-dev.qpiai.tech/verify/6954b6c5284e1ea22c4a5085">explorer-dev.qpiai.tech/verify/6954b6c5284e1ea22c4a5085</a></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <p>B.Tech, Information Technology | KIIT University, Bhubaneswar, India | 2014 – 2018</p>
+</section>
+
+</body>
+</html>
