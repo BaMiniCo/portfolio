@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abhishek Gupta — Developer Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Senior backend engineer building data platforms, open-source Singer connectors and AI agents. Built tap-usgs-earthquakes with OpenAI Codex.">
+<link rel="canonical" href="https://baminico.github.io/portfolio/dev-portfolio/">
+<!-- Link previews (WhatsApp, LinkedIn, Slack, X) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Abhishek Gupta">
+<meta property="og:title" content="Abhishek Gupta — Developer Portfolio">
+<meta property="og:description" content="Data platforms, open-source connectors and AI agents that ship real fixes. Meltano, 5X, Blinkit.">
+<meta property="og:url" content="https://baminico.github.io/portfolio/dev-portfolio/">
+<meta property="og:image" content="https://baminico.github.io/portfolio/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Abhishek Gupta, Senior Backend Engineer, Data and AI systems">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a verification ledger. One reading column; each claim sits on a ruled line beside the evidence that backs it. */
+:root {
+  --paper: #F2F4F7;
+  --sheet: #FFFFFF;
+  --ink: #111A2E;
+  --muted: #55607A;
+  --rule: #D6DCE7;
+  --accent: #2347C6;
+  --on-accent: #FFFFFF;
+  --ok: #0E7552;
+  --ok-tint: #E2F3EB;
+  --todo: #8F5300;
+  --todo-tint: #FFF3DC;
+
+  --font-display: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --step--2: 0.75rem;
+  --step--1: 0.875rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.375rem;
+  --step-2: clamp(1.875rem, 1.3rem + 2vw, 2.625rem);
+  --step-3: clamp(2.5rem, 1.4rem + 4.2vw, 4.25rem);
+
+  --radius: 6px;
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0B111E;
+    --sheet: #121A2B;
+    --ink: #E6EAF2;
+    --muted: #98A3B9;
+    --rule: #27314A;
+    --accent: #8AA4FF;
+    --on-accent: #0B111E;
+    --ok: #57CC9F;
+    --ok-tint: #0E2A21;
+    --todo: #F3B95E;
+    --todo-tint: #2B210E;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0B111E;
+  --sheet: #121A2B;
+  --ink: #E6EAF2;
+  --muted: #98A3B9;
+  --rule: #27314A;
+  --accent: #8AA4FF;
+  --on-accent: #0B111E;
+  --ok: #57CC9F;
+  --ok-tint: #0E2A21;
+  --todo: #F3B95E;
+  --todo-tint: #2B210E;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; }
+[hidden] { display: none !important; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+.skip {
+  position: absolute; left: -9999px; top: 8px; z-index: 20;
+  background: var(--sheet); color: var(--ink);
+  padding: 8px 12px; border: 1px solid var(--rule); border-radius: var(--radius);
+}
+.skip:focus { left: max(16px, env(safe-area-inset-left, 0px)); }
+
+/* Header */
+.site-header .wrap {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 16px 32px; padding-block: 20px;
+}
+.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
+.brand-text { display: grid; line-height: 1.2; }
+.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 1.375rem; }
+.brand-role { font-size: var(--step--1); color: var(--muted); }
+.nav { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: var(--step--1); }
+.nav a { color: var(--ink); text-decoration: none; padding-block: 4px; }
+.nav a:hover { color: var(--accent); }
+
+/* Hero */
+.hero .wrap {
+  display: grid; grid-template-columns: minmax(0, 46rem);
+  gap: clamp(28px, 4vw, 64px); align-items: start;
+  padding-block: clamp(20px, 4vw, 56px) clamp(40px, 6vw, 88px);
+}
+@media (max-width: 880px) { .hero .wrap { grid-template-columns: minmax(0, 1fr); } }
+.eyebrow {
+  margin: 0 0 16px; font-family: var(--font-mono); font-size: var(--step--2);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+}
+h1 {
+  margin: 0; font-family: var(--font-display); font-weight: 700;
+  font-size: var(--step-3); line-height: 1.02; letter-spacing: -0.005em; text-wrap: balance;
+}
+.lede { margin: 24px 0 0; max-width: 36rem; font-size: 1.1875rem; color: var(--muted); }
+.lede strong { color: var(--ink); font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 12px 20px; border-radius: var(--radius);
+  border: 1px solid transparent; font: 600 1rem/1.2 var(--font-body); text-decoration: none;
+}
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { filter: brightness(1.1); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--rule); }
+.btn-ghost:hover { border-color: var(--ink); }
+
+/* Quiet facts under the hero: numbers first, small type, no boxes */
+.facts {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 28px;
+  margin: 36px 0 0; padding-top: 18px; border-top: 1px solid var(--rule); max-width: 36rem;
+}
+.facts div { display: grid; gap: 2px; }
+.facts dt { order: 2; font-size: var(--step--1); line-height: 1.4; color: var(--muted); }
+.facts dd {
+  order: 1; margin: 0; font-family: var(--font-display); font-weight: 600;
+  font-size: 1.75rem; line-height: 1; font-variant-numeric: tabular-nums;
+}
+
+/* Verification record */
+.ledger {
+  background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: 22px 22px 18px; scroll-margin-top: 16px;
+}
+.ledger h2 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.625rem; line-height: 1.1; }
+.ledger .sub { margin: 4px 0 14px; color: var(--muted); font-size: var(--step--1); }
+.ledger ul { list-style: none; margin: 0; padding: 0; }
+.ledger li {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; align-items: center;
+  padding-block: 12px; border-top: 1px solid var(--rule);
+}
+.ledger li .chip { white-space: nowrap; }
+.k {
+  display: block; font-family: var(--font-mono); font-size: 0.6875rem;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+}
+.v { display: block; font-size: 0.9375rem; line-height: 1.45; }
+.legend {
+  display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0; padding-top: 14px;
+  border-top: 1px solid var(--rule); font-size: 0.8125rem; color: var(--muted);
+}
+.legend .item { display: inline-flex; align-items: center; gap: 8px; }
+
+/* Status chips */
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 2px 10px; border-radius: 999px; border: 1px solid transparent;
+  font-family: var(--font-mono); font-size: var(--step--2); line-height: 1.6; letter-spacing: .02em;
+}
+.chip svg { width: 12px; height: 12px; flex: none; }
+.chip.ok { background: var(--ok-tint); color: var(--ok); }
+.chip.todo { background: var(--todo-tint); color: var(--todo); border: 1px dashed currentColor; }
+a.chip { text-decoration: none; }
+a.chip:hover { text-decoration: underline; }
+
+/* Sections */
+.section .inner { padding-block: clamp(44px, 6vw, 80px); border-top: 1px solid var(--rule); }
+.section-title {
+  margin: 0; font-family: var(--font-display); font-weight: 700;
+  font-size: var(--step-2); line-height: 1.08; text-wrap: balance;
+}
+.section-intro { margin: 10px 0 0; max-width: 40rem; color: var(--muted); }
+
+/* Work history */
+.history { list-style: none; margin: 32px 0 0; padding: 0; border-top: 2px solid var(--ink); }
+.history li {
+  display: grid; grid-template-columns: 10.5rem minmax(0, 1fr) auto;
+  gap: 6px 28px; align-items: baseline;
+  padding-block: 18px; border-bottom: 1px solid var(--rule);
+}
+.when {
+  font-family: var(--font-mono); font-size: 0.8125rem; color: var(--muted);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.org-line { display: flex; flex-wrap: wrap; gap: 2px 10px; align-items: baseline; }
+.org { font-weight: 600; }
+.role { color: var(--muted); }
+.what { margin: 4px 0 0; max-width: 40rem; font-size: 0.9375rem; color: var(--muted); }
+@media (max-width: 760px) { .history li { grid-template-columns: minmax(0, 1fr); } }
+
+/* Case studies */
+.cases { display: grid; gap: 24px; margin-top: 32px; }
+.case {
+  display: grid; gap: 20px;
+  background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius);
+  padding: clamp(20px, 3vw, 36px); scroll-margin-top: 16px;
+}
+.case-meta {
+  margin: 0; font-family: var(--font-mono); font-size: var(--step--2);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+}
+.case h3 {
+  margin: 6px 0 0; max-width: 40rem; font-family: var(--font-display); font-weight: 700;
+  font-size: clamp(1.5rem, 1.15rem + 1.2vw, 2.125rem); line-height: 1.1; text-wrap: balance;
+}
+.case dl { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 14px 28px; margin: 0; }
+.case dt {
+  padding-top: 0.35em; font-family: var(--font-mono); font-size: var(--step--2);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+}
+.case dd { margin: 0; max-width: 42rem; }
+.case dd ul { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+.check {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px;
+  padding-top: 16px; border-top: 1px dashed var(--rule);
+}
+.check-label {
+  margin-right: 6px; font-family: var(--font-mono); font-size: var(--step--2);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+}
+@media (max-width: 680px) {
+  .case dl { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .case dd + dt { margin-top: 12px; }
+}
+
+/* Blinkit flow: three stages, steps numbered across all of them */
+.flow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 0; padding: 0; list-style: none; counter-reset: step; border-top: 2px solid var(--ink); }
+.flow > li { padding: 14px 18px 4px 0; }
+.flow > li + li { padding-left: 18px; border-left: 1px solid var(--rule); }
+.stage {
+  display: block; margin-bottom: 8px; font-family: var(--font-mono); font-size: var(--step--2);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--accent);
+}
+.flow ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.flow ol li {
+  counter-increment: step; display: grid; grid-template-columns: 1.75rem minmax(0, 1fr);
+  font-size: 0.9375rem; line-height: 1.45;
+}
+.flow ol li::before {
+  content: counter(step, decimal-leading-zero); padding-top: .1em;
+  font-family: var(--font-mono); font-size: var(--step--2); color: var(--muted);
+}
+.flow b { font-weight: 600; }
+@media (max-width: 760px) {
+  .flow { grid-template-columns: minmax(0, 1fr); }
+  .flow > li { padding: 14px 0 10px; }
+  .flow > li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
+}
+
+/* Two-column ruled lists: offers and terms */
+.pairs {
+  list-style: none; margin: 32px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px;
+  border-top: 2px solid var(--ink);
+}
+.pair { padding-block: 22px; border-bottom: 1px solid var(--rule); }
+.pair h3 {
+  margin: 0 0 6px; font-family: var(--font-display); font-weight: 700;
+  font-size: var(--step-1); line-height: 1.15;
+}
+.pair p { margin: 0; }
+.pair .backed { margin-top: 10px; font-size: var(--step--1); color: var(--muted); }
+.pair .meta {
+  margin: 0 0 6px; font-family: var(--font-mono); font-size: var(--step--2);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+}
+.pair .check { margin-top: 14px; padding-top: 12px; }
+@media (max-width: 720px) { .pairs { grid-template-columns: minmax(0, 1fr); } }
+
+/* Stack */
+.stack {
+  display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 12px 28px;
+  margin: 32px 0 0; padding-top: 20px; border-top: 2px solid var(--ink);
+}
+.stack dt {
+  padding-top: .3em; font-family: var(--font-mono); font-size: var(--step--2);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+}
+.stack dd { margin: 0; font-family: var(--font-mono); font-size: 0.9375rem; }
+@media (max-width: 680px) {
+  .stack { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .stack dd + dt { margin-top: 12px; }
+}
+
+/* Contact */
+.contact { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px 48px; align-items: start; }
+.contact-list {
+  display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 12px 20px; margin: 0;
+  padding: 22px; background: var(--sheet); border: 1px solid var(--rule); border-radius: var(--radius);
+}
+.contact-list dt {
+  padding-top: .35em; font-family: var(--font-mono); font-size: var(--step--2);
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+}
+.contact-list dd { margin: 0; }
+@media (max-width: 760px) { .contact { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 440px) {
+  .contact-list { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .contact-list dd + dt { margin-top: 10px; }
+}
+
+/* Footer */
+.site-footer .inner {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+  padding-block: 28px 40px; border-top: 1px solid var(--rule);
+  font-size: var(--step--1); color: var(--muted);
+}
+.site-footer p { margin: 0; }
+code { font-family: var(--font-mono); font-size: 0.875em; padding: 1px 5px; border-radius: 4px; background: var(--paper); border: 1px solid var(--rule); overflow-wrap: anywhere; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="brand-text">
+        <span class="brand-name">Abhishek Gupta</span>
+        <span class="brand-role">Senior Backend Engineer · Data and AI systems</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#featured">Codex</a>
+      <a href="#oss">Open source</a>
+      <a href="#cases">Engineering</a>
+      <a href="#projects">Projects</a>
+      <a href="#work">Experience</a>
+      <a href="#contact">Contact</a>
+      <a href="../Abhishek_Gupta_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">Bengaluru, India · Backend engineer since 2018</p>
+      <h1>I build data platforms, open-source connectors, and AI agents that ship real fixes.</h1>
+      <p class="lede">I write Java, Spring Boot and Python. At <strong>Meltano</strong> I build open-source Singer connectors and an agent that turns a failed pipeline into a reviewed pull request. At <strong>5X</strong> I built a RAG analytics service and an ingestion layer for a multi-cloud data platform. At <strong>Blinkit</strong> I built the warehouse and transit systems behind 10-minute delivery. I work with coding agents every day and like to show how they hold up on production code.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/BaMiniCo">GitHub</a>
+        <a class="btn btn-ghost" href="#featured">See the Codex build</a>
+      </div>
+      <dl class="facts">
+        <div><dt>to fix a failed pipeline with an agent-written PR, down from days</dt><dd>&lt; 1 hr</dd></div>
+        <div><dt>open-source connectors and state backends I created</dt><dd>7</dd></div>
+        <div><dt>merged pull requests to the open-source ClickHouse loader</dt><dd>11</dd></div>
+        <div><dt>enterprise clients on the 5X data platform I helped build</dt><dd>50+</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="featured" aria-labelledby="featured-title">
+  <div class="wrap"><div class="inner">
+    <h2 class="section-title" id="featured-title">Built with Codex</h2>
+    <p class="section-intro">A production connector built with OpenAI Codex, from an empty repo to PyPI and Meltano Hub, with every step logged.</p>
+    <div class="cases">
+      <article class="case" id="case-codex">
+        <header>
+          <p class="case-meta">2026 · Python · Singer SDK · OpenAI Codex</p>
+          <h3>tap-usgs-earthquakes: a Singer connector for the USGS Earthquake Catalog</h3>
+        </header>
+        <dl>
+          <dt>What it does</dt>
+          <dd>It pulls live earthquake events from the public USGS API into any Singer or Meltano destination. It needs no API key and no config: <code>meltano run tap-usgs-earthquakes target-jsonl</code> streams real data in about a minute.</dd>
+          <dt>How I used Codex</dt>
+          <dd>
+            <ul>
+              <li>An <code>AGENTS.md</code> with hard rules: run with an empty config, never request more than 20,000 rows, keep unit tests offline, and run the full check before calling a task done</li>
+              <li>A phased build: Codex researched the live API and recorded evidence and fixtures before it wrote any tap code</li>
+              <li>A review round: an independent review found that Meltano was silently turning off incremental sync, and Codex fixed that and the other findings</li>
+              <li>Codex also set up CI and trusted PyPI publishing through GitHub OIDC, and wrote the Meltano Hub listing</li>
+            </ul>
+          </dd>
+          <dt>Hard parts</dt>
+          <dd>
+            <ul>
+              <li>Incremental sync on <code>updated</code> when the API can only sort by event time or magnitude. The stream is marked unsorted, and state moves forward only after a full run</li>
+              <li>Old events get revised later, so incremental runs send <code>updatedafter</code> together with an explicit <code>starttime</code></li>
+              <li>The <code>/count</code> endpoint sizes each time window, which is split in half until it fits under the 20,000-row limit. Windows with no changes are skipped</li>
+            </ul>
+          </dd>
+          <dt>Tested</dt>
+          <dd>Ruff, mypy, offline fixture tests, the Singer SDK’s 26 standard tap tests against the live API, and CI on Python 3.10 and 3.12.</dd>
+        </dl>
+        <div class="check"><span class="check-label">Check it</span>
+          <a class="chip ok" href="https://github.com/BaMiniCo/tap-usgs-earthquakes"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>GitHub</a>
+          <a class="chip ok" href="https://github.com/BaMiniCo/tap-usgs-earthquakes/blob/main/BUILD_LOG.md"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Build log</a>
+          <a class="chip ok" href="https://pypi.org/project/tap-usgs-earthquakes/"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>PyPI</a>
+          <a class="chip ok" href="https://hub.meltano.com/extractors/tap-usgs-earthquakes--baminico"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Meltano Hub</a>
+          <a class="chip ok" href="https://github.com/meltano/hub/pull/2340"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Hub PR #2340</a>
+        </div>
+      </article>
+    </div>
+  </div></div>
+</section>
+
+<section class="section" id="oss" aria-labelledby="oss-title">
+  <div class="wrap"><div class="inner">
+    <h2 class="section-title" id="oss-title">Open source</h2>
+    <p class="section-intro">Code you can read, in repositories I created or contribute to.</p>
+    <ul class="pairs">
+      <li class="pair">
+        <p class="meta">Singer extractor · Python</p>
+        <h3><a href="https://github.com/MeltanoLabs/tap-powerbi">tap-powerbi</a></h3>
+        <p>Microsoft Power BI extractor with 16 streams and OAuth sign-in, running in Meltano Cloud.</p>
+      </li>
+      <li class="pair">
+        <p class="meta">Singer extractor · Python</p>
+        <h3><a href="https://github.com/MeltanoLabs/tap-zendesk">tap-zendesk</a></h3>
+        <p>Zendesk extractor with API-token sign-in and integration tests.</p>
+      </li>
+      <li class="pair">
+        <p class="meta">Singer extractor · Python</p>
+        <h3><a href="https://github.com/MeltanoLabs/tap-surveymonkey">tap-surveymonkey</a></h3>
+        <p>SurveyMonkey extractor for surveys and responses.</p>
+      </li>
+      <li class="pair">
+        <p class="meta">Singer extractor · Python</p>
+        <h3><a href="https://github.com/MeltanoLabs/tap-rakutenadvertising">tap-rakutenadvertising</a></h3>
+        <p>Rakuten Advertising extractor for affiliate and campaign reporting.</p>
+      </li>
+      <li class="pair">
+        <p class="meta">Meltano state backend · Python</p>
+        <h3><a href="https://github.com/meltano/meltano-state-backend-mssql">meltano-state-backend-mssql</a></h3>
+        <p>Stores Meltano pipeline state in SQL Server, with distributed locking and 21 unit tests.</p>
+      </li>
+      <li class="pair">
+        <p class="meta">Contributor · Python</p>
+        <h3><a href="https://github.com/MeltanoLabs/target-clickhouse/pulls?q=is%3Apr+author%3Aagupta-meltano+is%3Amerged">target-clickhouse</a></h3>
+        <p>11 merged pull requests, including retries with backoff, TLS verification, and a fix that stopped keyless tables collapsing to a single row.</p>
+      </li>
+      <li class="pair">
+        <p class="meta">Co-author · Knowledge base for agents</p>
+        <h3><a href="https://github.com/meltano/files-melty-ai">files-melty-ai</a></h3>
+        <p>An open-source knowledge base that gives coding agents accurate Meltano context. It backs the MCP tools customers’ agents use to search it.</p>
+      </li>
+      <li class="pair">
+        <p class="meta">CLI · Python · Speech</p>
+        <h3><a href="https://github.com/BaMiniCo/noteify">noteify</a></h3>
+        <p>Records a meeting, transcribes it locally with faster-whisper, and turns it into structured notes. The audio never leaves the machine.</p>
+      </li>
+    </ul>
+  </div></div>
+</section>
+
+<section class="section" id="cases" aria-labelledby="cases-title">
+  <div class="wrap"><div class="inner">
+    <h2 class="section-title" id="cases-title">Engineering work</h2>
+    <p class="section-intro">What I built at work, the technical problem behind it, and what changed.</p>
+
+    <div class="cases">
+      <article class="case" id="case-ai-ops">
+        <header>
+          <p class="case-meta">Meltano · 2026–now · Applied AI</p>
+          <h3>Self-healing data pipelines: an agent finds the failure, writes the fix, and a person approves it</h3>
+        </header>
+        <dl>
+          <dt>Problem</dt>
+          <dd>When a pipeline failed, an engineer had to notice it, read long logs, find the cause and write the fix. The customer’s data stayed stale the whole time.</dd>
+          <dt>What I built</dt>
+          <dd>
+            <ul>
+              <li>A monitoring agent that watches every pipeline and acts on a failure before a customer reports it</li>
+              <li>For each failure, the agent finds the cause, writes the fix and opens a pull request. An engineer reviews it and merges, so a person stays in the loop</li>
+              <li>AI diagnosis for each failed run, with the cause and next steps shown in the app and in the alert email</li>
+              <li>Context preparation that runs in parallel, is cached, and stays inside the model’s 200K-token limit</li>
+              <li>MCP tools that let customers’ own AI agents search the Meltano knowledge base and work with their pipelines</li>
+              <li>An agent-assisted engineering practice: custom skills, commands and hooks for coding agents, plus MCP integrations with Linear and GitHub, for bug triage, code review and incident investigation</li>
+            </ul>
+          </dd>
+          <dt>Result</dt>
+          <dd>Time to fix a failed pipeline fell from days to under an hour. A failure turns into a reviewed fix instead of a ticket waiting in a queue.</dd>
+          <dt>Stack</dt>
+          <dd>Python, Claude, MCP, GitHub API, Linear</dd>
+        </dl>
+        <div class="check"><span class="check-label">Check it</span>
+          <a class="chip ok" href="https://github.com/meltano/files-melty-ai"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>AI knowledge base (co-author)</a>
+          <a class="chip ok" href="https://www.linkedin.com/posts/meltano_your-pipeline-just-failedyoure-not-activity-7503021873681666049-FNRc"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Meltano post on self-healing pipelines</a>
+        </div>
+      </article>
+
+      <article class="case" id="case-connectors">
+        <header>
+          <p class="case-meta">Meltano · 2026–now · Data connectors</p>
+          <h3>Data warehouses as first-class destinations and state stores</h3>
+        </header>
+        <dl>
+          <dt>Problem</dt>
+          <dd>Teams wanted their pipeline data, and the pipeline state, in the warehouse they already run, not only in Postgres or object storage.</dd>
+          <dt>What I built</dt>
+          <dd>
+            <ul>
+              <li>Microsoft SQL Server as a destination and state store: JDBC configuration, SSH tunnels, a dbt adapter, and an open-source state backend with distributed locking</li>
+              <li>A fix for a shared-connection bottleneck that slowed SQL Server loads</li>
+              <li>ClickHouse as a supported data store, with SSH tunnels, upserts by default and a race-free state-backend lock</li>
+              <li>Incident response for critical customer pipelines, covering CDC correctness, schema integrity and cloud capacity</li>
+              <li>A move to Google Kubernetes Engine (GKE), the end of container-registry rate-limit outages, cross-cloud log replication, and per-workspace Datadog log forwarding with PII redaction</li>
+            </ul>
+          </dd>
+          <dt>Result</dt>
+          <dd>Customers connect these destinations in Meltano Cloud without custom engineering. With the self-healing pipelines, this work helped win enterprise accounts worth over $200K a year.</dd>
+          <dt>Stack</dt>
+          <dd>Python, Singer SDK, SQL Server, ClickHouse, dbt, Kubernetes (GKE), Datadog</dd>
+        </dl>
+      </article>
+
+      <article class="case" id="case-analytics">
+        <header>
+          <p class="case-meta">5X Data · 2025–2026 · Applied AI</p>
+          <h3>A production RAG service that answers plain-English questions from each client’s own warehouse</h3>
+        </header>
+        <dl>
+          <dt>Problem</dt>
+          <dd>Business users waited on analysts for every complex question about their data.</dd>
+          <dt>What I built</dt>
+          <dd>
+            <ul>
+              <li>I built and owned the service: a RAG engine on LangChain4j, with Qdrant vector search over a Cube semantic layer and 3072-dimension OpenAI embeddings</li>
+              <li>Reranking that uses the conversation so far. Sending only the most relevant semantic models cut reranking token use</li>
+              <li>Support for several LLM providers, with each client’s own API keys encrypted at rest</li>
+              <li>Shared team chats with per-user visibility and role-based access</li>
+              <li>Answers streamed with Server-Sent Events, plus LLM-based intent classification</li>
+            </ul>
+          </dd>
+          <dt>Result</dt>
+          <dd>Business users on a platform serving 50+ enterprise clients get answers from their own warehouse without waiting on an analyst.</dd>
+          <dt>Stack</dt>
+          <dd>Java, Spring Boot, LangChain4j, Qdrant, Cube, OpenAI, SSE</dd>
+        </dl>
+        <div class="check"><span class="check-label">Check it</span><a class="chip ok" href="https://www.linkedin.com/posts/datawith5x_conversational-bi-activity-7369379970378330113-fGJP"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>5X post on conversational BI</a></div>
+      </article>
+
+      <article class="case" id="case-ingestion">
+        <header>
+          <p class="case-meta">5X Data · 2024–2026 · Data platform</p>
+          <h3>One API over Fivetran, Airbyte and Matatika, on a hub-and-spoke platform across three clouds</h3>
+        </header>
+        <dl>
+          <dt>Problem</dt>
+          <dd>Enterprise clients needed data from many sources in Snowflake, BigQuery and Redshift, without managing several ingestion vendors themselves.</dd>
+          <dt>What I built</dt>
+          <dd>
+            <ul>
+              <li>A unified ingestion layer: connector lifecycle, schema discovery, sync orchestration and signed webhooks</li>
+              <li>DAG-based job orchestration with Quartz on Kubernetes and ECS, with Redis distributed locking for 15+ scheduled jobs</li>
+              <li>Multi-tenant workspaces with data isolation, OAuth2 and role-based access control</li>
+              <li>A hub-and-spoke platform across GCP, AWS and Azure: client-dedicated Kubernetes data planes in 5+ regions, Terraform, a WireGuard mesh, and observability with Grafana, Thanos and Loki</li>
+              <li>Usage-metering and billing APIs for add-on compute capacity</li>
+            </ul>
+          </dd>
+          <dt>Result</dt>
+          <dd>A platform serving 50+ enterprise clients with high availability across regions, and zero-downtime deployments through GitHub Actions.</dd>
+          <dt>Stack</dt>
+          <dd>Java, Spring Boot, Quartz, Redis, Kubernetes, Terraform, Snowflake, BigQuery, Redshift</dd>
+        </dl>
+      </article>
+
+      <article class="case" id="case-blinkit">
+        <header>
+          <p class="case-meta">Blinkit · 2021–2024 · Quick commerce</p>
+          <h3>Event-driven systems behind 10-minute delivery, from the warehouse dock to the customer’s door</h3>
+        </header>
+        <ol class="flow" aria-label="The path a product takes, in 12 steps">
+          <li><span class="stage">Warehouse</span>
+            <ol>
+              <li><span><b>Receive.</b> The truck is unloaded and every crate is scanned.</span></li>
+              <li><span><b>Validate.</b> Each item is checked against the purchase order it was raised for.</span></li>
+              <li><span><b>Put away.</b> Stock goes to its aisle, rack and shelf.</span></li>
+              <li><span><b>Plan.</b> Put lists come from each dark store’s demand, oldest expiry first.</span></li>
+              <li><span><b>Pick and bill.</b> Items are crated one by one and billed as a B2B sale.</span></li>
+              <li><span><b>Load.</b> Crates are sorted to trucks by the volume of each item and crate.</span></li>
+            </ol>
+          </li>
+          <li><span class="stage">Transit</span>
+            <ol>
+              <li><span><b>Dispatch.</b> The truck checks out and GPS tracks it to the dark store.</span></li>
+              <li><span><b>Arrive.</b> The store sees which truck and driver came, and checks the seal.</span></li>
+            </ol>
+          </li>
+          <li><span class="stage">Dark store</span>
+            <ol>
+              <li><span><b>Receive.</b> Crates are unloaded, scanned, sorted and shelved.</span></li>
+              <li><span><b>Pick.</b> Each customer order becomes a pick list.</span></li>
+              <li><span><b>Hand off.</b> The picker puts the order on a rack and scans its QR code.</span></li>
+              <li><span><b>Deliver.</b> The rider scans the order out and marks it delivered at the door.</span></li>
+            </ol>
+          </li>
+        </ol>
+        <dl>
+          <dt>Problem</dt>
+          <dd>A 10-minute promise only holds if every item is in the right dark store before anyone orders it. That means stock, crates, trucks and riders tracked at every handoff, with nothing lost between them.</dd>
+          <dt>What I built</dt>
+          <dd>
+            <ul>
+              <li>Led a pod of 4 engineers on middle-mile tracking: truck dispatch, live GPS, seal checks and store arrival</li>
+              <li>Asynchronous Kafka pipelines for real-time inventory, crate, asset and order events</li>
+              <li>A new dark-store system in Java and Spring Boot for unloading, shelving, auditing and picking</li>
+              <li>Load planning by item and crate volume, and demand-based put lists that ship the oldest stock first</li>
+              <li>Invoice registration in FastAPI for B2B billing and compliance</li>
+            </ul>
+          </dd>
+          <dt>Result</dt>
+          <dd>Live visibility of stock in transit across 20 warehouses, about 600 dark stores and about 4,000 truck trips a day.</dd>
+          <dt>Stack</dt>
+          <dd>Java, Spring Boot, Kafka, FastAPI, PostgreSQL, Redis</dd>
+        </dl>
+      </article>
+    </div>
+  </div></div>
+</section>
+
+<section class="section" id="projects" aria-labelledby="projects-title">
+  <div class="wrap"><div class="inner">
+    <h2 class="section-title" id="projects-title">Side projects</h2>
+    <p class="section-intro">Working systems I built and use myself.</p>
+    <ul class="pairs">
+      <li class="pair">
+        <p class="meta">2026 · Python · Data pipelines</p>
+        <h3>Algorithmic trading system</h3>
+        <p>A personal research system for Indian equities. It runs daily on my own cloud server: it loads market and company-results data, ranks stocks, and runs paper-trading books under fixed risk limits. A strategy is trusted only after it passes a test written down before it was run. More than 400 automated tests cover it.</p>
+      </li>
+      <li class="pair">
+        <p class="meta">2026 · Python · Computer vision</p>
+        <h3>Photo tamper check</h3>
+        <p>Tells you whether a photo was made with AI and whether it was edited after it was taken. It combines Content Credentials (C2PA) and other metadata, classical image forensics and two AI detectors, and shows a heatmap of where the signs are. Thresholds keep false alarms on real photos at about 1%. It runs on a CPU in 2 to 5 seconds.</p>
+      </li>
+      <li class="pair">
+        <p class="meta">2026 · Python · Agents</p>
+        <h3>Demand machine</h3>
+        <p>An agent pipeline that finds companies hiring for repetitive operations work and builds each a working demo from its own public data, for example reading purchase orders from email or PDF and matching them to a catalog. A weekly agent on GitHub Actions proposes new data sources and checks each source’s terms of use.</p>
+      </li>
+      <li class="pair">
+        <p class="meta">2026 · Python · Speech</p>
+        <h3><a href="https://github.com/BaMiniCo/noteify">Noteify</a></h3>
+        <p>A command-line tool that records a meeting, transcribes it on your own machine with faster-whisper, and turns the transcript into structured notes. The audio never leaves the machine, and it still produces the transcript when it’s offline.</p>
+      </li>
+    </ul>
+  </div></div>
+</section>
+
+<section class="section" id="work" aria-labelledby="work-title">
+  <div class="wrap"><div class="inner">
+    <h2 class="section-title" id="work-title">Experience</h2>
+    <ol class="history">
+      <li>
+        <span class="when">Mar 2026 – now</span>
+        <div>
+          <div class="org-line"><span class="org">Meltano</span><span class="role">Senior Backend Engineer</span></div>
+          <p class="what">Self-healing pipelines, open-source data connectors, SQL Server and ClickHouse support, platform infrastructure and incident response.</p>
+        </div>
+      </li>
+      <li>
+        <span class="when">Jun 2024 – Mar 2026</span>
+        <div>
+          <div class="org-line"><span class="org">5X Data</span><span class="role">Software Engineer</span></div>
+          <p class="what">Top contributor to the core platform: ingestion, orchestration, the RAG analytics service and billing.</p>
+        </div>
+      </li>
+      <li>
+        <span class="when">Feb 2021 – Jun 2024</span>
+        <div>
+          <div class="org-line"><span class="org">Blinkit</span><span class="role">Software Development Engineer 2</span></div>
+          <p class="what">Warehouse, transit and dark-store systems for 10-minute delivery. Led a pod of 4 engineers.</p>
+        </div>
+      </li>
+      <li>
+        <span class="when">Feb 2018 – Feb 2021</span>
+        <div>
+          <div class="org-line"><span class="org">Hexaware Technologies</span><span class="role">Software Engineer</span></div>
+          <p class="what">Internal products built with Spring Boot, React, Xamarin and AWS.</p>
+        </div>
+      </li>
+    </ol>
+  </div></div>
+</section>
+
+<section class="section" id="stack" aria-labelledby="stack-title">
+  <div class="wrap"><div class="inner">
+    <h2 class="section-title" id="stack-title">Tools I use in production</h2>
+    <dl class="stack">
+      <dt>Languages</dt>
+      <dd>Java, Python, SQL, JavaScript (React)</dd>
+      <dt>Backend</dt>
+      <dd>Spring Boot, FastAPI, Django, REST, Server-Sent Events, JPA/Hibernate, Liquibase, Quartz</dd>
+      <dt>Data</dt>
+      <dd>PostgreSQL, MySQL, SQL Server, ClickHouse, Redis, Kafka, Snowflake, BigQuery, Redshift, Qdrant</dd>
+      <dt>Ingestion</dt>
+      <dd>Meltano, Singer SDK, dbt, Matatika, Fivetran, Airbyte, Apache Superset</dd>
+      <dt>AI</dt>
+      <dd>AI agents, RAG, LangChain, LangGraph, LangChain4j, Cube, Claude, Claude Code, OpenAI Codex, GPT-4, Gemini, MCP</dd>
+      <dt>Cloud and ops</dt>
+      <dd>AWS, GCP, Azure, Kubernetes, Helm, Terraform, Docker, GitHub Actions, Grafana, Thanos, Loki, Datadog</dd>
+      <dt>Testing</dt>
+      <dd>JUnit, Testcontainers, pytest, integration test suites</dd>
+    </dl>
+  </div></div>
+</section>
+
+<section class="section" id="contact" aria-labelledby="contact-title">
+  <div class="wrap"><div class="inner">
+    <div class="contact">
+      <div>
+        <h2 class="section-title" id="contact-title">Get in touch</h2>
+        <p class="section-intro">Happy to talk about data connectors, coding agents on production code, or anything on this page.</p>
+      </div>
+      <dl class="contact-list">
+        <dt>Email</dt>
+        <dd><a href="mailto:abhishek9060@gmail.com">abhishek9060@gmail.com</a></dd>
+        <dt>GitHub</dt>
+        <dd><a href="https://github.com/BaMiniCo">github.com/BaMiniCo</a></dd>
+        <dt>LinkedIn</dt>
+        <dd><a href="https://www.linkedin.com/in/abhishek007/">linkedin.com/in/abhishek007</a></dd>
+        <dt>Resume</dt>
+        <dd><a href="../Abhishek_Gupta_Resume.pdf" target="_blank" rel="noopener">Open the PDF</a></dd>
+        <dt>Location</dt>
+        <dd>Bengaluru, IST (UTC+5:30)</dd>
+      </dl>
+    </div>
+  </div></div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><div class="inner">
+    <p>© 2026 Abhishek Gupta</p>
+  </div></div>
+</footer>
+<script>
+// In-page links scroll here directly, so they also work where the page is served without a normal URL (previews, embeds).
+document.addEventListener("click", function (e) {
+  var link = e.target.closest('a[href^="#"]');
+  if (!link) return;
+  var target = document.getElementById(link.getAttribute("href").slice(1));
+  if (!target) return;
+  e.preventDefault();
+  target.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  if (target.matches("main, section")) target.setAttribute("tabindex", "-1");
+  target.focus({ preventScroll: true });
+});
+</script>
+</body>
+</html>
