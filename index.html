@@ -615,6 +615,16 @@ a.chip:hover { text-decoration: underline; }
     <p class="section-intro">Working systems I built and use myself.</p>
     <ul class="pairs">
       <li class="pair">
+        <p class="meta">2026 · Python · Built with Codex</p>
+        <h3><a href="https://github.com/BaMiniCo/tap-usgs-earthquakes">tap-usgs-earthquakes</a></h3>
+        <p>An open-source Singer connector for the USGS Earthquake Catalog that needs no API key. I built it with OpenAI Codex. It syncs incrementally even though the API can’t sort by update time, and it sizes each request so none goes over the API’s 20,000-row limit. Released on PyPI and listed on Meltano Hub.</p>
+        <div class="check"><span class="check-label">Check it</span>
+          <a class="chip ok" href="https://github.com/BaMiniCo/tap-usgs-earthquakes"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>GitHub</a>
+          <a class="chip ok" href="https://pypi.org/project/tap-usgs-earthquakes/"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>PyPI</a>
+          <a class="chip ok" href="https://hub.meltano.com/extractors/tap-usgs-earthquakes--baminico"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 6.2 5 8.6 9.6 3.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Meltano Hub</a>
+        </div>
+      </li>
+      <li class="pair">
         <p class="meta">2026 · Python · Claude</p>
         <h3>Demand machine</h3>
         <p>Finds companies hiring for repetitive operations work, then builds each one a working demo from its own public data. The first demo reads a purchase order from email or PDF, matches every line to the company’s catalog, and writes a file their ERP can import. A weekly agent on GitHub Actions proposes new data sources, with checks on each source’s terms of use.</p>
@@ -702,7 +712,7 @@ a.chip:hover { text-decoration: underline; }
       <dt>Ingestion</dt>
       <dd>Meltano, Singer SDK, dbt, Matatika, Fivetran, Airbyte, Apache Superset</dd>
       <dt>AI</dt>
-      <dd>AI agents, RAG, LangChain, LangGraph, LangChain4j, Qdrant, Cube, Claude, Claude Code, GPT-4, Gemini, MCP</dd>
+      <dd>AI agents, RAG, LangChain, LangGraph, LangChain4j, Qdrant, Cube, Claude, Claude Code, OpenAI Codex, GPT-4, Gemini, MCP</dd>
       <dt>Cloud and ops</dt>
       <dd>AWS, GCP, Azure, Kubernetes, Helm, Terraform, Docker, GitHub Actions, Grafana, Thanos, Loki, Datadog</dd>
       <dt>Security</dt>
